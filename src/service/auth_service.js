@@ -1,4 +1,5 @@
 import {getAuth, signInWithPopup, GithubAuthProvider, GoogleAuthProvider} from 'firebase/auth';
+import {firebaseApp} from "./firebase";
 
 class AuthService {
     constructor() {
@@ -10,6 +11,16 @@ class AuthService {
     login(providerName) {
         const authProvider = this.getProvider(providerName);
         return signInWithPopup(this.firebaseAuth, authProvider);
+    }
+
+    logout() {
+        this.firebaseAuth.signOut();
+    }
+
+    onAuthChange(onUserChanged) {
+        this.firebaseAuth.onAuthStateChanged((user) => {
+            onUserChanged(user);
+        })
     }
 
     getProvider(providerName) {
