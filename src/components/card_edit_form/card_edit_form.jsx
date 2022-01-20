@@ -6,7 +6,6 @@ import ImageFileInput from "../image_file_input/image_file_input";
 const CardEditForm = ({card}) => {
     const {name, company, title, message, email, theme, fileName, fileURL} = card;
     const onSubmit = () => {
-
     };
     return (
         <form className={styles.form}>
