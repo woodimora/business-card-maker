@@ -1,5 +1,4 @@
 import {getAuth, signInWithPopup, GithubAuthProvider, GoogleAuthProvider} from 'firebase/auth';
-import {firebaseApp} from "./firebase";
 
 class AuthService {
     constructor() {
